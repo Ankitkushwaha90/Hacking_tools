@@ -1,0 +1,25 @@
+FROM ubuntu:16.04
+
+RUN apt-get update
+RUN apt-get install python3-dev -y
+RUN apt-get install python3-pip -y
+RUN apt-get install libssl-dev -y
+RUN apt-get install build-essential -y
+RUN apt-get install libffi-dev -y
+RUN apt-get install libsnappy-dev -y
+RUN apt-get install lib32ncurses5-dev -y
+RUN apt-get install libpcap-dev  -y
+RUN apt-get install libpq-dev -y
+
+COPY ./app.py /app/app.py
+
+WORKDIR ./app/
+
+RUN pip3 install python-snappy
+
+
+COPY . /app/
+
+ENTRYPOINT [ "python3" ]
+
+CMD [ "app.py" ]

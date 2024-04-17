@@ -1,0 +1,25 @@
+body {
+    font-family: monospace;
+}
+
+#terminal {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#output {
+    height: 200px;
+    overflow-y: auto;
+}
+
+#command-input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+}

@@ -1,0 +1,254 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Terminal</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        #terminal {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #222;
+        }
+
+        #output {
+            overflow-y: scroll;
+            height: 300px;
+        }
+
+        #output p {
+            margin: 5px 0;
+        }
+
+        #output pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        #commandInput {
+            width: calc(100% - 70px);
+            padding: 5px;
+            font-family: inherit;
+            font-size: inherit;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+        }
+
+        #commandInput::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-family: inherit;
+            font-size: inherit;
+            background-color: #008000;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #006400;
+        }
+
+        button:active {
+            background-color: #004d00;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Linux Terminal</h1>
+    <div id="terminal">
+        <div id="output"></div>
+        <form id="commandForm">
+            <input type="text" id="commandInput" autocomplete="off" placeholder="Enter a Linux command">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const terminalOutput = document.getElementById('output');
+        const commandForm = document.getElementById('commandForm');
+        const commandInput = document.getElementById('commandInput');
+
+        commandForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const command = commandInput.value.trim();
+            if (command !== '') {
+                executeCommand(command);
+                commandInput.value = '';
+            }
+        });
+
+        function executeCommand(command) {
+            fetch('/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `command=${encodeURIComponent(command)}`
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Command execution failed');
+                }
+            })
+            .then(output => {
+                terminalOutput.innerHTML += `<p><strong>$ ${command}</strong></p>`;
+                terminalOutput.innerHTML += `<pre>${output}</pre>`;
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            })
+            .catch(error => {
+                terminalOutput.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            });
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Terminal</title>
+    <style>
+        body {
+            font-family: Consolas, monospace;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        #terminal {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #666666;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #output {
+            overflow-y: scroll;
+            height: 300px;
+        }
+
+        #output p {
+            margin: 5px 0;
+        }
+
+        #output pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        #commandInput {
+            width: calc(100% - 70px);
+            padding: 5px;
+            font-family: inherit;
+            font-size: inherit;
+            background-color: #1e1e1e;
+            border: none;
+            color: #ffffff;
+            outline: none;
+        }
+
+        #commandInput::placeholder {
+            color: #aaaaaa;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-family: inherit;
+            font-size: inherit;
+            background-color: #007acc;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005a99;
+        }
+
+        button:active {
+            background-color: #003d66;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Windows Terminal</h1>
+    <div id="terminal">
+        <div id="output"></div>
+        <form id="commandForm">
+            <input type="text" id="commandInput" autocomplete="off" placeholder="Enter a command">
+            <button type="submit">Execute</button>
+        </form>
+    </div>
+
+    <script>
+        const terminalOutput = document.getElementById('output');
+        const commandForm = document.getElementById('commandForm');
+        const commandInput = document.getElementById('commandInput');
+
+        commandForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const command = commandInput.value.trim();
+            if (command !== '') {
+                executeCommand(command);
+                commandInput.value = '';
+            }
+        });
+
+        function executeCommand(command) {
+            fetch('/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `command=${encodeURIComponent(command)}`
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Command execution failed');
+                }
+            })
+            .then(output => {
+                terminalOutput.innerHTML += `<p><strong>$ ${command}</strong></p>`;
+                terminalOutput.innerHTML += `<pre>${output}</pre>`;
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            })
+            .catch(error => {
+                terminalOutput.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            });
+        }
+    </script>
+</body>
+</html>

