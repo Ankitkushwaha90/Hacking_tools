@@ -1,4 +1,4 @@
-hack rf radio frequency one
+hack rf radio frequency one jammer
 flipper zero
 ### hacking tool 5 technology
 ```
